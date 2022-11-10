@@ -3,21 +3,18 @@
   // const increment = () => {
   //   count += 1
   // }
+  let squares: any = [false, false, false, false, false, false, false, false, false]
 </script>
 
 <!-- <button on:click={increment}>
   count is {count}
 </button> -->
 
-<!-- tic tac toe grid using tailwind -->
-<div class="grid grid-cols-3 grid-rows-3 gap-4">
-  <div class="border-2 border-black bg-white">1</div>
-  <div class="border-2 border-black bg-white">2</div>
-  <div class="border-2 border-black bg-white">3</div>
-  <div class="border-2 border-black bg-white">4</div>
-  <div class="border-2 border-black bg-white">5</div>
-  <div class="border-2 border-black bg-white">6</div>
-  <div class="border-2 border-black bg-white">7</div>
-  <div class="border-2 border-black bg-white">8</div>
-  <div class="border-2 border-black bg-white">9</div>
+<!-- 3x3 square grid of buttons using tailwind -->
+<div class="grid grid-cols-3 gap-4">
+  {#each squares as square}
+  <button class="bg-gray-200 hover:bg-gray-100 text-gray-800 text-4xl font-bold py-4 px-4 h-40 w-40 rounded">
+    {square}
+  </button>
+  {/each}
 </div>
