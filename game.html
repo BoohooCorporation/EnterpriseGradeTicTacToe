@@ -4,9 +4,10 @@ function game() {
     let grid = [[0, 0, 0,], [0, 0, 0,], [0, 0, 0,]];
     let player = 1;
     while (true) {
-        let square = prompt(`Player ${player}, choose a square (1-9):`);
-        let row = Math.floor((square - 1) / 3);
-        let col = (square - 1) % 3;
+        // ask the player for the row and column
+        let row = prompt("Player " + player + ", enter the row number (0, 1, or 2):");
+        let col = prompt("Player " + player + ", enter the column number (0, 1, or 2):");
+        
         if (grid[row][col] === 0) {
             grid[row][col] = player;
             if (player === 1) {
@@ -44,7 +45,7 @@ function game() {
         }
 
         // Display the grid
-        let gridString = "";
+        let gridString = "The grid:\n";
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 if (grid[i][j] === 0) {
