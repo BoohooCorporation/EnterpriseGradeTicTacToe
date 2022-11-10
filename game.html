@@ -1,0 +1,66 @@
+<script>
+// Functional game in case a graphical version cannot be completed
+function game() {
+    let grid = [[0, 0, 0,], [0, 0, 0,], [0, 0, 0,]];
+    let player = 1;
+    while (true) {
+        let square = prompt(`Player ${player}, choose a square (1-9):`);
+        let row = Math.floor((square - 1) / 3);
+        let col = (square - 1) % 3;
+        if (grid[row][col] === 0) {
+            grid[row][col] = player;
+            if (player === 1) {
+                player = 2;
+            } else {
+                player = 1;
+            }
+
+            // check for winner
+            // check rows
+            for (let i = 0; i < 3; i++) {
+                if (grid[i][0] !== 0 && grid[i][0] === grid[i][1] && grid[i][0] === grid[i][2]) {
+                    alert(`Player ${grid[i][0]} wins!`);
+                    return;
+                }
+            }
+            // check cols
+            for (let i = 0; i < 3; i++) {
+                if (grid[0][i] !== 0 && grid[0][i] === grid[1][i] && grid[0][i] === grid[2][i]) {
+                    alert(`Player ${grid[0][i]} wins!`);
+                    return;
+                }
+            }
+            // check diagonals
+            if (grid[0][0] !== 0 && grid[0][0] === grid[1][1] && grid[0][0] === grid[2][2]) {
+                alert(`Player ${grid[0][0]} wins!`);
+                return;
+            }
+            if (grid[0][2] !== 0 && grid[0][2] === grid[1][1] && grid[0][2] === grid[2][0]) {
+                alert(`Player ${grid[0][2]} wins!`);
+                return;
+            }
+        } else {
+            alert("That square is already taken!");
+        }
+
+        // Display the grid
+        let gridString = "";
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (grid[i][j] === 0) {
+                    gridString += "-";
+                } else if (grid[i][j] === 1) {
+                    gridString += "X";
+                } else if (grid[i][j] === 2) {
+                    gridString += "O";
+                }
+            }
+            gridString += "\n"
+        }
+        alert(gridString);
+    }
+}
+
+game();
+
+</script>
