@@ -30,44 +30,46 @@
       }
     }
 
-    let conditions = [
-      squares[0].value === squares[1].value &&
-        squares[1].value === squares[2].value &&
-        squares[0].value !== '',
-      squares[3].value === squares[4].value &&
-        squares[4].value === squares[5].value &&
-        squares[3].value !== '',
-      squares[6].value === squares[7].value &&
-        squares[7].value === squares[8].value &&
-        squares[6].value !== '',
-      squares[0].value === squares[3].value &&
-        squares[3].value === squares[6].value &&
-        squares[0].value !== '',
-      squares[1].value === squares[4].value &&
-        squares[4].value === squares[7].value &&
-        squares[1].value !== '',
-      squares[2].value === squares[5].value &&
-        squares[5].value === squares[8].value &&
-        squares[2].value !== '',
-      squares[0].value === squares[4].value &&
-        squares[4].value === squares[8].value &&
-        squares[0].value !== '',
-      squares[2].value === squares[4].value &&
-        squares[4].value === squares[6].value &&
-        squares[2].value !== '',
-    ]
-
-    if (conditions.includes(true)) {
-      alert('We have a winner!')
-      squares.forEach((s: any) => (s.value = ''))
-    }
-
-    if (squares.every((s: any) => s.value !== '')) {
-      alert('Draw!')
-      squares.forEach((s: any) => (s.value = ''))
-    }
+    setTimeout(() => {
+      let conditions = [
+        s[0].value == s[1].value &&
+          s[1].value == s[2].value &&
+          s[0].value != '',
+        s[3].value == s[4].value &&
+          s[4].value == s[5].value &&
+          s[3].value != '',
+        s[6].value == s[7].value &&
+          s[7].value == s[8].value &&
+          s[6].value != '',
+        s[0].value == s[3].value &&
+          s[3].value == s[6].value &&
+          s[0].value != '',
+        s[1].value == s[4].value &&
+          s[4].value == s[7].value &&
+          s[1].value != '',
+        s[2].value == s[5].value &&
+          s[5].value == s[8].value &&
+          s[2].value != '',
+        s[0].value == s[4].value &&
+          s[4].value == s[8].value &&
+          s[0].value != '',
+        s[2].value == s[4].value &&
+          s[4].value == s[6].value &&
+          s[2].value != '',
+      ]
+    
+      if (conditions.includes(true)) {
+        alert('We have a winner!')
+        squares.forEach((s: any) => (s.value = ''))
+      }
+    
+      if (squares.every((s: any) => s.value !== '')) {
+        alert('Draw!')
+        squares.forEach((s: any) => (s.value = ''))
+      }
+    }, 0)
   }
-</script>
+  </script>
 
 <!-- <button on:click={increment}>
   count is {count}
