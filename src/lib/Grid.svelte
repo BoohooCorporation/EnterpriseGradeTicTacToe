@@ -67,7 +67,7 @@
         alert('Draw!')
         squares.forEach((s: any) => (s.value = ''))
       }
-    }, 0)
+    }, 50)
   }
   </script>
 
