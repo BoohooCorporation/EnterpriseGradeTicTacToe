@@ -60,12 +60,12 @@
     
       if (conditions.includes(true)) {
         alert('We have a winner!')
-        squares.forEach((s: any) => (s.value = ''))
+        squares.forEach((square: any) => (square.value = ''))
       }
     
-      if (squares.every((s: any) => s.value !== '')) {
+      if (squares.every((square: any) => square.value !== '')) {
         alert('Draw!')
-        squares.forEach((s: any) => (s.value = ''))
+        squares.forEach((square: any) => (square.value = ''))
       }
     }, 50)
   }
