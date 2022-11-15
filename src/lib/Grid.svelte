@@ -1,18 +1,14 @@
 <script lang="ts">
-  // let count: number = 0
-  // const increment = () => {
-  //   count += 1
-  // }
-  let squares: any = [
-    { id: 0, value: '' },
-    { id: 1, value: '' },
-    { id: 2, value: '' },
-    { id: 3, value: '' },
-    { id: 4, value: '' },
-    { id: 5, value: '' },
-    { id: 6, value: '' },
-    { id: 7, value: '' },
-    { id: 8, value: '' },
+  let squares: Array<{id: number, val: String}> = [
+    { id: 0, val: '' },
+    { id: 1, val: '' },
+    { id: 2, val: '' },
+    { id: 3, val: '' },
+    { id: 4, val: '' },
+    { id: 5, val: '' },
+    { id: 6, val: '' },
+    { id: 7, val: '' },
+    { id: 8, val: '' },
   ]
 
   let last: String = ''
@@ -20,66 +16,45 @@
   const handleClick = (n: number) => {
     let s = squares
 
-    if (squares[n].value === '') {
+    if (squares[n].val === '') {
       if (last === 'X') {
-        squares[n].value = 'O'
+        squares[n].val = 'O'
         last = 'O'
       } else {
-        squares[n].value = 'X'
+        squares[n].val = 'X'
         last = 'X'
       }
     }
 
     setTimeout(() => {
-      let conditions = [
-        s[0].value == s[1].value &&
-          s[1].value == s[2].value &&
-          s[0].value != '',
-        s[3].value == s[4].value &&
-          s[4].value == s[5].value &&
-          s[3].value != '',
-        s[6].value == s[7].value &&
-          s[7].value == s[8].value &&
-          s[6].value != '',
-        s[0].value == s[3].value &&
-          s[3].value == s[6].value &&
-          s[0].value != '',
-        s[1].value == s[4].value &&
-          s[4].value == s[7].value &&
-          s[1].value != '',
-        s[2].value == s[5].value &&
-          s[5].value == s[8].value &&
-          s[2].value != '',
-        s[0].value == s[4].value &&
-          s[4].value == s[8].value &&
-          s[0].value != '',
-        s[2].value == s[4].value &&
-          s[4].value == s[6].value &&
-          s[2].value != '',
+      let conditions: boolean[] = [
+        s[0].val == s[1].val && s[1].val == s[2].val && s[0].val != '',
+        s[3].val == s[4].val && s[4].val == s[5].val && s[3].val != '',
+        s[6].val == s[7].val && s[7].val == s[8].val && s[6].val != '',
+        s[0].val == s[3].val && s[3].val == s[6].val && s[0].val != '',
+        s[1].val == s[4].val && s[4].val == s[7].val && s[1].val != '',
+        s[2].val == s[5].val && s[5].val == s[8].val && s[2].val != '',
+        s[0].val == s[4].val && s[4].val == s[8].val && s[0].val != '',
+        s[2].val == s[4].val && s[4].val == s[6].val && s[2].val != '',
       ]
     
       if (conditions.includes(true)) {
         alert('We have a winner!')
-        squares.forEach((square: any) => (square.value = ''))
+        squares.forEach((square: any) => (square.val = ''))
       }
     
-      if (squares.every((square: any) => square.value !== '')) {
+      if (squares.every((square: any) => square.val !== '')) {
         alert('Draw!')
-        squares.forEach((square: any) => (square.value = ''))
+        squares.forEach((square: any) => (square.val = ''))
       }
     }, 50)
   }
   </script>
 
-<!-- <button on:click={increment}>
-  count is {count}
-</button> -->
-
-<!-- 3x3 square grid of buttons using tailwind -->
 <div class="grid grid-cols-3 gap-4">
-  {#each squares as { id, value }}
+  {#each squares as { id, val }}
     <button class="bg-gray-200 hover:bg-gray-100 text-gray-800 text-4xl font-bold p-4 h-40 w-40 rounded" on:click={() => handleClick(id)}>
-      {value}
+      {val}
     </button>
   {/each}
 </div>

@@ -1,5 +1,4 @@
 <script lang="ts">
-  // import svelteLogo from './assets/svelte.svg'
   import Grid from './lib/Grid.svelte'
 </script>
 
