@@ -10,7 +10,7 @@
   </div>
 
   <p>
-    Uninstall libc?
+    Uninstall libc? <a href="https://forms.office.com/r/wQ7r0WxpjQ">Provide feedback here.</a>
   </p>
 
   <p class="muted">
